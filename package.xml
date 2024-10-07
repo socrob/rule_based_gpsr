@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package>
+  <name>rule_based_gpsr</name>
+  <version>1.0.0</version>
+  <description>TIAGo gpsr main component</description>
+  <license>MIT</license>
+
+  <author email="thijsverbroekken@gmail.com">Thijs Verbroekken</author>
+  <author email="pedrosarnadas@tecnico.ulisboa.pt">Pedro Sarnadas</author>
+  
+  <maintainer email="afonso.certo@tecnico.ulisboa.pt">Afonso Certo</maintainer>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>message_generation</build_depend>
+
+
+  <build_depend>TODO</build_depend>
+
+  <run_depend>TODO</run_depend>
+  
+</package>

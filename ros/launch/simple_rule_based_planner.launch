@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- Input and output stopics of the NLU -->
+    <arg name="nlu_transcript_topic" default="/nlu_rule_based/transcript" />
+    <arg name="nlu_result_topic" default="/nlu_rule_based/dialogue_acts" />
+
+    <!-- Name of the planner -->
+    <arg name="planner_name" default="rule_based_planner" />
+
+    <!-- Launch the correct NLU -->
+    <arg name="old_GPSR" default="false" />
+    <arg name="old_EGPSR" default="false" />
+    <arg name="new_GPSR" default="false" />
+    <arg name="rc24_final_NLU" default="false" />
+
+    <!-- Use the keyword based NLU when the normal one fails -->
+    <arg name="use_keyword_nlu" default="$(arg use_keyword_nlu)" />
+
+    <include file="$(find nlu_rule_based)/launch/GPSR_nlu_node.launch" if="$(arg old_GPSR)">
+        <arg name="transcript_topic" value="$(arg nlu_transcript_topic)" />
+        <arg name="result_topic" value="$(arg nlu_result_topic)" />
+        <arg name="use_keyword_nlu" value="$(arg use_keyword_nlu)" />
+    </include>
+
+    <include file="$(find nlu_rule_based)/launch/EGPSR_nlu_node.launch" if="$(arg old_EGPSR)">
+        <arg name="transcript_topic" value="$(arg nlu_transcript_topic)" />
+        <arg name="result_topic" value="$(arg nlu_result_topic)" />
+        <arg name="use_keyword_nlu" value="$(arg use_keyword_nlu)" />
+    </include>
+
+    <include file="$(find nlu_rule_based)/launch/new_GPSR_nlu_node.launch" if="$(arg new_GPSR)">
+        <arg name="transcript_topic" value="$(arg nlu_transcript_topic)" />
+        <arg name="result_topic" value="$(arg nlu_result_topic)" />
+        <arg name="use_keyword_nlu" value="$(arg use_keyword_nlu)" />
+    </include>
+
+    <include file="$(find nlu_rule_based)/launch/rc24_final_nlu_node.launch" if="$(arg rc24_final_NLU)">
+        <arg name="transcript_topic" value="$(arg nlu_transcript_topic)" />
+        <arg name="result_topic" value="$(arg nlu_result_topic)" />
+        <arg name="use_keyword_nlu" value="$(arg use_keyword_nlu)" />
+    </include>
+
+    <!-- Launch the planner node -->
+    <node pkg="rule_based_gpsr" type="simple_rule_based_planner.py" name="$(arg planner_name)"
+          output="screen" required="true">
+        <param name="nlu_transcript_topic" value="$(arg nlu_transcript_topic)" />
+        <param name="nlu_result_topic" value="$(arg nlu_result_topic)" />
+    </node>
+</launch>
