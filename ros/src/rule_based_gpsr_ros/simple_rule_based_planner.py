@@ -3,9 +3,8 @@
 import rospy
 
 from std_msgs.msg import String
-from tiago_executor.msg import action_msg
-from google_speech_recognition.msg import ASRNBestList, ASRHypothesis
-from nlu_rule_based.msg import nlu_msg
+from socrob_planning_msgs.msg import action_msg, nlu_msg
+from socrob_speech_msgs.msg import ASRNBestList, ASRHypothesis
 
 from rule_based_gpsr_ros.rule_based_planner_funcs import convert_task_to_actions
 
