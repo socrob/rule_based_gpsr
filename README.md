@@ -61,7 +61,7 @@ This will launch the planner and the NLU modules.
 - `nlu_transcript_topic` - The topic where the NLU is expecting the transcript to be published.
 - `nlu_result_topic` - The topic where the NLU will publish the result.
 - `planner_name` - The name given to the planner node. The planner node will expect to receive instruction in the `<planner_name>/instruction` as a `std_msgs/String` and will publish the resulting actions in the `<planner_name>/actions` topic as `socrob_planning_msgs/action_msg`.
-- `old_GPSR`, `old_EGPSR` and `new_GPSR` - Variables to choose which NLU to use. 
+- `eurobin_coopetition`, `old_GPSR`, `old_EGPSR` and `new_GPSR` - Variables to choose which NLU to use. If you are not using the [socrob NLU module](https://github.com/socrob/nlu_rule_based) leave everything as false.
 
 # Available Actions
 
