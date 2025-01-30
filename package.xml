@@ -12,10 +12,7 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   
-  <build_depend>message_generation</build_depend>
-
-
-  <build_depend>TODO</build_depend>
+  <build_depend>socrob_planning_msgs</build_depend>
 
   <run_depend>TODO</run_depend>
   
